@@ -15,12 +15,13 @@ defmodule Books.Web.Router do
 
   scope "/", Books.Web do
     pipe_through :browser # Use the default browser stack
-
     get "/", PageController, :index
+
+    resources "/orders", OrderController
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", Books.Web do
-  #   pipe_through :api
-  # end
+  scope "/api", Books.Web do
+    pipe_through :api
+  end
 end
